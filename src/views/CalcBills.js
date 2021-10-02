@@ -27,7 +27,8 @@ const calcBills = ({navigation}) => {
                 title="Ir para próxima etapa"
                 color= '#2DABFF'
                 fontWeight='bold'
-                key="1"
+                //key="1"
+                
                 onPress={()=> navigation.navigate('Data', {preco: precoKg})}/>
             </View>
           </View>

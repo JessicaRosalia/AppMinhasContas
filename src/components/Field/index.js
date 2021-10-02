@@ -16,16 +16,9 @@ const Field = (props)=>{
                 style={style.input} 
                 keyboardType="numeric" 
                 width={width || 306} 
-                value={precoKg}
+                //value={precoKg}
                 onChangeText={(text)=>{setPrecoKg(text)}}
-                    
-                
-                
                 />
-            <Text style={style.example}>{example}</Text>
-            <Text>{precoKg}</Text>
-            <Text>{typeof(precoKg)}</Text>
-            <Text>{precoKg * "2"}</Text>
         </View>
     );
 };

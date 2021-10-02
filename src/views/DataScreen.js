@@ -1,4 +1,4 @@
-import React, {useState} from 'react' ;
+import React, {useEffect, useState} from 'react' ;
 import {Button, SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 import Breadcrumb from '../components/Breadcrumb';
 import Field from '../components/Field';
@@ -18,13 +18,34 @@ const DataScreen = ({navigation, route}) => {
   const [qtdPesadas5, setQtdPesadas5] = useState(1);
   const [qtdPesadas55, setQtdPesadas55] = useState(1);
   const [qtdPesadas6, setQtdPesadas6] = useState(1);
-
+  
 
   const precoKg = route.params.preco;
 
     function totality (){
+   //   let valorKg=precoKg;
+  //    let valorMeioKg = precoKg/2;
+   
+
+
+  useEffect(() => {
+      let a = parseFloat(precoKg) * qtdPesadas1;
+      setQtdPesadas1(a);
+
+            let b = (parseFloat(precoKg) + parseFloat(precoKg)/2) * qtdPesadas15;
+      setQtdPesadas15(b);
+     }, [] )
+     
+
+
+
+    //  let b = (precoKg * (precoKg/2)) * qtdPesadas15;
+    //  setQtdPesadas15(b);
+
+      //setQtdPesadas15((precoKg + (precoKg/2)) * qtdPesadas15);
+      //setQtdPesadas2((precoKg * 2) * qtdPesadas2);
        
-      switch (precoKg) {
+      {/*switch (precoKg) {
         case qtdPesadas1:
           setQtdPesadas1(precoKg * qtdPesadas1);
           break;
@@ -46,10 +67,10 @@ const DataScreen = ({navigation, route}) => {
           
         default:
           break;
-      }
+      } */}
   }
 
-  totality();
+  const ttt = totality();
 
 
     return (
@@ -74,7 +95,7 @@ const DataScreen = ({navigation, route}) => {
                 <Field example={"Exemplo: 11"} width={80} precoKg={qtdPesadas45} setPrecoKg={setQtdPesadas45}>Quantidade de pesadas de 4,5kg:</Field>
                 <Field example={"Exemplo: 11"} width={80} precoKg={qtdPesadas5} setPrecoKg={setQtdPesadas5}>Quantidade de pesadas de 5kg:</Field>
                 <Field example={"Exemplo: 11"} width={80} precoKg={qtdPesadas55} setPrecoKg={setQtdPesadas55}>Quantidade de pesadas de 5,5kg:</Field>
-                <Field example={"Exemplo: 11"} width={80} precoKg={qtdPesadas6} setPrecoKg={setQtdPesadas6}>Quantidade de pesadas de 6kg:</Field>
+                <Field example={"Exemplo: 11"} width={80} precoKg={qtdPesadas6} setPrecoKg={setQtdPesadas6}>Quantidade de pesadas de 6kg:</Field> 
               
                 <View style={style.buttonStep2}>
                   <Button
@@ -83,7 +104,7 @@ const DataScreen = ({navigation, route}) => {
                
                    
                     onPress={function (){
-                       navigation.navigate('Result',{precoKg: precoKg, qtdpesadas1: qtdPesadas1, qtdpesadas15: qtdPesadas15})}
+                       navigation.navigate('Result',{precoKg: precoKg, qtdpesadas1: qtdPesadas1, qtdpesadas15: qtdPesadas15, qtdPesadas2: qtdPesadas2})}
                     }
                     
                     />
@@ -96,12 +117,5 @@ const DataScreen = ({navigation, route}) => {
         </SafeAreaView>
     )
 };
-
-const styleBTN = StyleSheet.create ({
-  colorBTN: {
-    color: '#fff',
-    marginTop: 1000,
-  }
-})
 
 export default DataScreen;

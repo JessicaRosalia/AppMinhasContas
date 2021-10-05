@@ -1,6 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
+    containerPreload: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1,
+        height: '100%',
+    },
+    image_preload: {
+        marginBottom: 20,
+    },
     container_p: {
         backgroundColor: '#fff',
         height: '100%',

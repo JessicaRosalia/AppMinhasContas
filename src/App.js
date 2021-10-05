@@ -13,15 +13,23 @@ import DataScreen from './views/DataScreen';
 import HomeScreen from './views/HomeScreen';
 import CalcBills from './views/CalcBills';
 import ResultScreen from './views/ResultScreen';
-
+import Preload from './views/Preload';
 
 const Stack = createStackNavigator();
 
 const App= () => {
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home"
+    
+        <Stack.Navigator initialRouteName="Preload"
         screenOptions={screenOptions}>
+
+        <Stack.Screen
+            name="Preload"
+            component={Preload}
+            options={{
+                headerShown: false}}
+          />
           <Stack.Screen
             name="Home"
             component={HomeScreen}
